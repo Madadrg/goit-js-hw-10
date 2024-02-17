@@ -1,6 +1,6 @@
-// index.js
 import { fetchBreeds, fetchCatByBreed } from './cat-api';
 import Notiflix from 'notiflix';
+import SlimSelect from 'slim-select';
 
 document.addEventListener('DOMContentLoaded', async () => {
   const breedSelect = document.querySelector('.breed-select');
@@ -21,6 +21,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       option.value = breed.id;
       option.text = breed.name;
       breedSelect.appendChild(option);
+    });
+
+    // Initialize SlimSelect
+    const slimSelect = new SlimSelect('.breed-select', {
+      placeholder: 'Select a breed',
     });
 
     loader.style.display = 'none';
